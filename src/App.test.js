@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
+import ImageUpload from './ImageUpload';
 
-test('renders learn react link', () => {
+test('renders Form Page', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
 });
+
+test('render user Image Upload Component', () => {
+  render(<ImageUpload />);
+});
+
+

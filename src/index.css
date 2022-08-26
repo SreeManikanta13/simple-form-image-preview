@@ -1,13 +1,211 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding:0;
+  background-size: cover;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.box{
+  margin: 50px;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  border: 1px solid #dadce0;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%);
+}
+
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox .form-control {
+  width: -webkit-fill-available;
+  padding: 10px;
+  font-size:1rem;
+  letter-spacing:0.062rem;
+  margin-bottom:50px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+}
+
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: grey;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.box .inputBox .form-control:focus ~ label,
+.box .inputBox .touched.form-control ~ label
+
+{
+  top: -18px;
+  left: 10px;
+  color: #1a73e8;
+  font-size: 12px;
+  background-color: white;
+  height: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.box .inputBox .touched.form-control ~ label{
+  color:grey;
+}
+
+.box .inputBox .touched.form-control:focus ~ label{
+  color:#1a73e8;
+}
+
+.box .inputBox .form-control:focus {
+  outline: none;
+  border: 2px solid #1a73e8;
+}
+
+.box .inputBox .is-invalid.form-control:focus ~ label,
+.box .inputBox .is-invalid.form-control:not([value=""]) ~ label{
+  color: red;
+}
+.box .inputBox .is-invalid.form-control:focus {
+  color: red;
+  border: 2px solid red;
+}
+
+.box .inputBox .is-invalid.form-control ~ label{
+  color:red !important;
+}
+
+.box .inputBox .is-invalid.form-control {
+  border: 1px solid red !important;
+}
+
+.invalid-feedback{
+  position: absolute;
+  bottom: 35px;
+  font-size: 12px;
+  color: red;
+}
+
+.nameWrapper{
+  display: flex;
+  justify-content: space-around;
+}
+
+.nameWrapper .inputBox{
+  width:100%;
+}
+
+.nameWrapper .inputBox.firstName{
+  margin-right: 30px;
+}
+
+.nameWrapper .inputBox.lastName{
+  margin-left: 30px;
+}
+
+textarea{
+  height: 100px;
+}
+
+.form-group.submit{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-group.submit button{
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%);
+  background: #1a73e8;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.form-group.submit button[disabled]{
+  background: lightgray;
+  color: gray;
+  cursor:unset;
+}
+
+#file[type="file"] {
+	display: none;
+}
+
+.result{
+  margin-top:10px ;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left; 
+  
+}
+
+.imageUpload img{
+  width: calc(45%);
+  height: auto;
+  padding: 10px;
+}
+
+.imageUpload label{
+  width: 200px;
+  padding: 9px;
+  position: absolute;
+  right: 125px;
+  font-weight: 600;
+  color: gray;
+  cursor: pointer;
+}
+
+h2{
+  text-align: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media screen and (max-width: 768px) {
+  .box{
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .nameWrapper{
+    flex-flow: column;
+  }
+
+  .nameWrapper .inputBox.firstName, .nameWrapper .inputBox.lastName{
+    margin: 0;
+  }
+  
+  .box .inputBox .form-control{
+    margin-bottom: 40px;
+  }
+
+  .invalid-feedback{
+    bottom: 25px;
+  }
+
+  .imageUpload img{
+    width: -webkit-fill-available;
+  }
+
+  .imageUpload label{
+    right:unset;
+  }
+
 }
