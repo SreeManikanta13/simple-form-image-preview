@@ -78,11 +78,11 @@ body {
 }
 
 .box .inputBox .is-invalid.form-control ~ label{
-  color:red !important;
+  color:red;
 }
 
 .box .inputBox .is-invalid.form-control {
-  border: 1px solid red !important;
+  border: 1px solid red;
 }
 
 .invalid-feedback{

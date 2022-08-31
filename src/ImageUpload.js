@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ImageUpload = () => {
+const ImageUpload = ({image}) => {
 	const [ selectedFiles, setSelectedFiles ] = useState([]);
 
 	const imageChangeHandler = (e) => {
@@ -14,8 +14,11 @@ const ImageUpload = () => {
 	};
 
 	const previewPhotos = (source) => {
+		if(image) return 
 		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} />;
+			return (
+				<img src={photo} alt={photo} key={photo} />
+			);
 		});
 	};
 
